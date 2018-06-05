@@ -10,6 +10,6 @@ public class Prototype extends Application{
     public void start(Stage primaryStage) throws Exception {
 
 
-        SecurityStage securityStage=new SecurityStage();
+        //SecurityStage securityStage=new SecurityStage();
     }
 }
