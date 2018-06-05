@@ -1,21 +1,18 @@
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class CleaningStage {
 
-    double positionX;
-    double positionY;
-    double sizeX;
-    double sizeY;
-
     public CleaningStage(double positionX,double positionY,double sizeX,double sizeY){
-        this.positionX=positionX;
-        this.positionY=positionY;
-        this.sizeX=sizeX;
-        this.sizeY=sizeY;
         Stage mainStage = new Stage();
         mainStage.setX(positionX);
         mainStage.setY(positionY);
+        GridPane mainPane = new GridPane();
+        Scene scene = new Scene(mainPane,sizeX,sizeY);
+
+        mainStage.setScene(scene);
         mainStage.show();
     }
 
