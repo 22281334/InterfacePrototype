@@ -57,10 +57,10 @@ public class CleaningStage {
 
         topLayout.setLeft(home);
         leftLayout.setTop(room);
-        leftLayout.setCenter(new Text("fuck interface"));
+        leftLayout.setCenter(new Text("Sub"));
         bottomLayout.setRight(power);
         bottomLayout.setLeft(setting);
-        centerLayout.setCenter(new Text("fuck you"));
+        centerLayout.setCenter(new Text("Main"));
         rightLayout.setTop(time);
 
         content.setTop(topLayout);
