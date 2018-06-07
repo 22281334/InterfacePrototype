@@ -32,6 +32,7 @@ public class SecurityStage {
         content.setCenter(gridPane);
 
 
+
         stage.setTitle("Security");
 
         //start the window.
