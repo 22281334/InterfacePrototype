@@ -1,16 +1,12 @@
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -29,11 +25,11 @@ public class CleaningStage {
         BorderPane centerLayout = new BorderPane();
         BorderPane rightLayout = new BorderPane();
 
-        Image roomPic = new Image("room.png");
-        Image homePic = new Image("Home.png");
-        Image powerPic = new Image("power.png");
-        Image setPic = new Image("setting.png");
-        Image timePic = new Image("time.png");
+        Image roomPic = new Image("pic/Cleaning/room.png");
+        Image homePic = new Image("pic/Cleaning/Home.png");
+        Image powerPic = new Image("pic/Cleaning/power.png");
+        Image setPic = new Image("pic/Cleaning/setting.png");
+        Image timePic = new Image("pic/Cleaning/time.png");
 
         Button room = new Button("Room",new ImageView(roomPic));
         Button home = new Button("Home Page",new ImageView(homePic));

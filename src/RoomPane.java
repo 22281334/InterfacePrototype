@@ -5,9 +5,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -60,6 +58,8 @@ public class RoomPane {
                 KeyFrame kf = new KeyFrame(Duration.millis(500),kv);
                 timeline.getKeyFrames().add(kf);
                 timeline.play();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,"Success! Change Saved.",new ButtonType("OK",ButtonBar.ButtonData.YES));
+                alert.show();
             }
         });
 
