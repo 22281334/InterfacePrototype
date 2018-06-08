@@ -31,8 +31,9 @@ public class HomePageStage {
         Button securityButton = new Button("Security",new ImageView(new Image("pic/SecurityIcon.png")));
         topLayout.setCenter(title);
 
-        startNewPage(cleaningButton,CleaningStage.class);
-        startNewPage(securityButton,SecurityStage.class);
+        startNewPage(cleaningButton,CleaningStage.class,mainStage);
+        mainStage.close();
+        startNewPage(securityButton,SecurityStage.class,mainStage);
 
         centerLayout.getChildren().add(cleaningButton);
         centerLayout.getChildren().add(securityButton);
@@ -45,19 +46,22 @@ public class HomePageStage {
     }
 
 
-    private void startNewPage(Button buttonClick,Object object){
-        EventHandler<ActionEvent> cancelButton = new EventHandler<ActionEvent>() {
+    private void startNewPage(Button buttonClick,Object object,Stage mainStage){
+        EventHandler<ActionEvent> startButton = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
                 if (object==SecurityStage.class){
-                    new SecurityStage(380,500,0,0);
+                    new SecurityStage(380,500,1000,800);
+                    mainStage.close();
                 }
                 else if (object==CleaningStage.class){
                     new CleaningStage(400,100,1000,800);
+                    mainStage.close();
                 }
             }
         };
-        buttonClick.setOnAction(cancelButton);
+        buttonClick.setOnAction(startButton);
     }
+
 }

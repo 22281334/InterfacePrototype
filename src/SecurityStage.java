@@ -1,5 +1,7 @@
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -49,13 +51,26 @@ public class SecurityStage {
         backView.setFitHeight(20);
         imageView.setFitWidth(20);
         imageView.setFitHeight(20);
-        top.add(backView, 0, 0);
-
+        //top.add(backView, 0, 0);
+        Button backButton = new Button("",backView);
+        top.add(backButton,0,0);
         top.add(imageView, 1, 0);
         top.add(new Label("  Security "), 2, 0);
+        EventHandler<ActionEvent> startButton = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                new HomePageStage(400,100,1000,800);
+                stage.close();;
+            }
+        };
+        backButton.setOnAction(startButton);
 
         content.setTop(top);
 
+
+
+        //center
         GridPane center = new GridPane();
         center.add(new Label("   "),0,0);
         center.add(new Label("Camera "), 1, 0);
@@ -73,7 +88,6 @@ public class SecurityStage {
 
         ScrollBar sc=new ScrollBar();
         VBox vb=new VBox();
-
 
         sc.setLayoutX(scene.getWidth()-sc.getWidth());
         sc.setMin(0);
