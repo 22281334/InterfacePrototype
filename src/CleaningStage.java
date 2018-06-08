@@ -20,6 +20,7 @@ public class CleaningStage {
         Stage mainStage = new Stage();
         mainStage.setX(positionX);
         mainStage.setY(positionY);
+        mainStage.setResizable(false);
 
         BorderPane content = new BorderPane();
         BorderPane leftLayout = new BorderPane();
@@ -40,10 +41,13 @@ public class CleaningStage {
         Button time = new Button("Schedule",new ImageView(timePic));
         ToggleButton power = new ToggleButton("Tap to Start",new ImageView(powerPic));
 
+        Text mainTitle = new Text("Cleaning Management");
+        mainTitle.setStyle("-fx-font-size: 30");
+
         double btnWidth = 300;
         double btnHeight = 150;
 
-        home.setStyle("-fx-font-size: 20;");
+        home.setStyle("-fx-font-size: 15;");
         room.setStyle("-fx-font-size: 20;");
         power.setStyle("-fx-font-size: 20; " +
                 "-fx-background-color: rgba(0,255,0,0.5)");
@@ -63,7 +67,7 @@ public class CleaningStage {
            @Override
            public void handle(ActionEvent event) {
                String bgColor = power.getBackground().getFills().get(0).toString();
-               bgColor = bgColor.substring(bgColor.length()-8);  // Get current color "@5e759d9"(Green)
+               bgColor = bgColor.substring(bgColor.length()-8);
                 if(bgColor.equals("@5e759d9")){
                     power.setStyle("-fx-font-size: 20; " +
                             "-fx-background-color: rgba(255,0,0,0.5)");
@@ -80,53 +84,12 @@ public class CleaningStage {
         room.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                GridPane roomSelector = new GridPane();
-                double subBtnWidth = 100;
-                double subBtnHeight = 100;
-
-                ToggleButton living = new ToggleButton("Living Room");
-                ToggleButton kitchen = new ToggleButton("kitchen");
-                ToggleButton bedRoom = new ToggleButton("Bed Room");
-                ToggleButton toilet = new ToggleButton("Toilet");
-                Button save = new Button("Save changes");
-
-                living.setPrefWidth(subBtnWidth);
-                living.setPrefHeight(subBtnHeight);
-                kitchen.setPrefWidth(subBtnWidth);
-                kitchen.setPrefHeight(subBtnHeight);
-                bedRoom.setPrefWidth(subBtnWidth);
-                bedRoom.setPrefHeight(subBtnHeight);
-                toilet.setPrefWidth(subBtnWidth);
-                toilet.setPrefHeight(subBtnHeight);
-                save.setPrefWidth(subBtnWidth);
-                save.setPrefHeight(80);
-                living.setStyle("-fx-font-size: 13;");
-                kitchen.setStyle("-fx-font-size: 13;");
-                bedRoom.setStyle("-fx-font-size: 13;");
-                toilet.setStyle("-fx-font-size: 13;");
-                save.setStyle("-fx-font-size: 12;");
-
-                roomSelector.add(living,0,0);
-                roomSelector.add(kitchen,2,0);
-                roomSelector.add(bedRoom,0,1);
-                roomSelector.add(toilet,2,1);
-                roomSelector.add(save,1,2);
-
-                roomSelector.setHgap(55);
-                roomSelector.setVgap(100);
-
-                centerLayout.setStyle("-fx-background-color: rgba(192,192,192,0.5)");
-                roomSelector.setStyle("-fx-background-color: rgba(192,192,192,0.8)");
-
-                Text title = new Text("Please Select Room");
-                title.setStyle("-fx-font-size: 30");
-
-                centerLayout.setBottom(roomSelector);
-                centerLayout.setCenter(title);
+                GridPane roomSelector = new RoomPane().returnPane(centerLayout);
             }
         });
 
         topLayout.setLeft(home);
+        topLayout.setCenter(mainTitle);
         leftLayout.setTop(room);
         leftLayout.setCenter(new Text("Sub"));
         bottomLayout.setRight(power);
