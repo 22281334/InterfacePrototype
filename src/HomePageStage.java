@@ -1,3 +1,5 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -25,12 +27,16 @@ public class HomePageStage {
 
         Image CleaningPic = new Image("pic/Cleaning.png");
 
-        Button cleaning = new Button("Cleaning",new ImageView(CleaningPic));
-        Button security = new Button("Security");
-
+        Button cleaningButton = new Button("Cleaning",new ImageView(CleaningPic));
+        Button securityButton = new Button("Security",new ImageView(new Image("pic/SecurityIcon.png")));
         topLayout.setCenter(title);
-        centerLayout.getChildren().add(cleaning);
-        centerLayout.getChildren().add(security);
+
+        startNewPage(cleaningButton,CleaningStage.class,mainStage);
+        mainStage.close();
+        startNewPage(securityButton,SecurityStage.class,mainStage);
+
+        centerLayout.getChildren().add(cleaningButton);
+        centerLayout.getChildren().add(securityButton);
         content.setTop(topLayout);
         content.setCenter(centerLayout);
 
@@ -38,4 +44,24 @@ public class HomePageStage {
         mainStage.setScene(mainScene);
         mainStage.show();
     }
+
+
+    private void startNewPage(Button buttonClick,Object object,Stage mainStage){
+        EventHandler<ActionEvent> startButton = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                if (object==SecurityStage.class){
+                    new SecurityStage(380,500,1000,800);
+                    mainStage.close();
+                }
+                else if (object==CleaningStage.class){
+                    new CleaningStage(400,100,1000,800);
+                    mainStage.close();
+                }
+            }
+        };
+        buttonClick.setOnAction(startButton);
+    }
+
 }
