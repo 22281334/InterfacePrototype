@@ -25,10 +25,18 @@ public class SecurityStage {
         stage.setY(positionY);
 
         GridPane gridPane = new GridPane();
-        Image image = new Image("pic/SecurityIcon.png");
+        Image security = new Image("pic/SecurityIcon.png");
+        Image back=new Image("pic/backIcon.png");
+        ImageView backView=new ImageView(back);
+        ImageView imageView = new ImageView(security);
+        backView.setFitWidth(20);
+        backView.setFitHeight(20);
 
-        ImageView imageView = new ImageView(image);
-        gridPane.add(imageView,0,0);
+        imageView.setFitWidth(20);
+        imageView.setFitHeight(20);
+        gridPane.add(backView,0,0);
+
+        gridPane.add(imageView,20,0);
         content.setCenter(gridPane);
 
 
