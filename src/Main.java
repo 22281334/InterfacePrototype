@@ -9,8 +9,8 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         //CleaningStage cleaningStage = new CleaningStage(400,100,1000,800);
-        //HomeStage home = new HomeStage(300,300,500,500);
+        HomePageStage home = new HomePageStage(400,100,1000,800);
 
-        SecurityStage securityStage=new SecurityStage(500,500,0,0);
+        //SecurityStage securityStage=new SecurityStage(500,500,0,0);
     }
 }
