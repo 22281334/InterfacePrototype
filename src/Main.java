@@ -11,6 +11,6 @@ public class Main extends Application{
         //CleaningStage cleaningStage = new CleaningStage(400,100,1000,800);
         //HomePageStage home = new HomePageStage(400,100,1000,800);
 
-        SecurityStage securityStage=new SecurityStage(500,500,0,0);
+        SecurityStage securityStage=new SecurityStage(380,500,0,0);
     }
 }
