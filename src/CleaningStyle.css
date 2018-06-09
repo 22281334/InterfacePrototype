@@ -1,0 +1,13 @@
+.button{
+    -fx-background-color: rgba(148,228,255,0.3);
+    -fx-border-width: 2;
+    -fx-border-color: rgba(0,119,255,0.5)
+}
+
+.TopBG {
+    -fx-background-color: rgba(0,119,255,0.5);
+}
+
+.MainBG{
+    -fx-background-color: rgba(169,255,200,0.2);
+}

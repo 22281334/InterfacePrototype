@@ -1,4 +1,3 @@
-import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -10,41 +9,21 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
-public class RoomPane {
-
-    public RoomPane(){
+public class TimePane {
+    public TimePane(){
 
     }
 
     public GridPane returnPane(BorderPane centerLayout){
-        GridPane roomSelector = new GridPane();
-        double subBtnWidth = 100;
-        double subBtnHeight = 100;
-
-        ToggleButton living = new ToggleButton("Living Room");
-        ToggleButton kitchen = new ToggleButton("kitchen");
-        ToggleButton bedRoom = new ToggleButton("Bed Room");
-        ToggleButton toilet = new ToggleButton("Toilet");
+        GridPane timeSelector = new GridPane();
+        DatePicker calender = new DatePicker();
         Button save = new Button("Save changes");
 
-        living.setPrefWidth(subBtnWidth);
-        living.setPrefHeight(subBtnHeight);
-        kitchen.setPrefWidth(subBtnWidth);
-        kitchen.setPrefHeight(subBtnHeight);
-        bedRoom.setPrefWidth(subBtnWidth);
-        bedRoom.setPrefHeight(subBtnHeight);
-        toilet.setPrefWidth(subBtnWidth);
-        toilet.setPrefHeight(subBtnHeight);
-        save.setPrefWidth(subBtnWidth);
+        save.setPrefWidth(100);
         save.setPrefHeight(50);
-
-        living.setStyle("-fx-font-size: 13;");
-        kitchen.setStyle("-fx-font-size: 13;");
-        bedRoom.setStyle("-fx-font-size: 13;");
-        toilet.setStyle("-fx-font-size: 13;");
         save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
 
         save.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -65,7 +44,7 @@ public class RoomPane {
             @Override
             public void handle(ActionEvent event) {
                 ProgressBar progress = new ProgressBar(0);
-                roomSelector.add(progress,1,2);
+                timeSelector.add(progress,1,2);
                 Timeline timeline = new Timeline();
                 KeyValue kv = new KeyValue(progress.progressProperty(),1);
                 KeyFrame kf = new KeyFrame(Duration.millis(500),kv);
@@ -76,25 +55,18 @@ public class RoomPane {
             }
         });
 
-        roomSelector.add(living,0,0);
-        roomSelector.add(kitchen,2,0);
-        roomSelector.add(bedRoom,0,1);
-        roomSelector.add(toilet,2,1);
-        roomSelector.add(save,1,3);
+        timeSelector.add(calender,1,1);
+        timeSelector.add(save,1,3);
+        timeSelector.setAlignment(Pos.CENTER);
+        timeSelector.setHgap(10);
+        timeSelector.setVgap(50);
 
-        roomSelector.setAlignment(Pos.CENTER);
-        roomSelector.setHgap(10);
-        roomSelector.setVgap(30);
-
-        centerLayout.setStyle("-fx-background-color: rgba(192,192,192,0.5)");
-        roomSelector.setStyle("-fx-background-color: rgba(192,192,192,0.8)");
-
-        Text title = new Text("Please Select Room");
+        Text title = new Text("Please Select the Date");
         title.setStyle("-fx-font-size: 25");
 
-        centerLayout.setBottom(roomSelector);
+        centerLayout.setBottom(timeSelector);
         centerLayout.setCenter(title);
 
-        return roomSelector;
+        return timeSelector;
     }
 }
