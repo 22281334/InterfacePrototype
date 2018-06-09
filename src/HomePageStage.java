@@ -25,14 +25,13 @@ public class HomePageStage {
 
         centerLayout.setHgap(100);
 
-        Image CleaningPic = new Image("pic/Cleaning.png");
+        Image CleaningPic = new Image("pic/Security/Cleaning.png");
 
         Button cleaningButton = new Button("Cleaning",new ImageView(CleaningPic));
-        Button securityButton = new Button("Security",new ImageView(new Image("pic/SecurityIcon.png")));
+        Button securityButton = new Button("Security",new ImageView(new Image("pic/Security/SecurityIcon.png")));
         topLayout.setCenter(title);
 
         startNewPage(cleaningButton,CleaningStage.class,mainStage);
-        mainStage.close();
         startNewPage(securityButton,SecurityStage.class,mainStage);
 
         centerLayout.getChildren().add(cleaningButton);
@@ -52,7 +51,7 @@ public class HomePageStage {
             public void handle(ActionEvent event) {
 
                 if (object==SecurityStage.class){
-                    new SecurityStage(380,500,1000,800);
+                    new SecurityStage(1000,800,400,100);
                     mainStage.close();
                 }
                 else if (object==CleaningStage.class){
