@@ -24,6 +24,7 @@ public class CleaningStage {
         BorderPane bottomLayout = new BorderPane();
         BorderPane centerLayout = new BorderPane();
         BorderPane rightLayout = new BorderPane();
+        topLayout.setPrefHeight(150);
 
         Image roomPic = new Image("pic/Cleaning/room.png");
         Image homePic = new Image("pic/Cleaning/Home.png");
@@ -43,13 +44,6 @@ public class CleaningStage {
         double btnWidth = 300;
         double btnHeight = 150;
 
-        home.setStyle("-fx-font-size: 15;");
-        room.setStyle("-fx-font-size: 20;");
-        power.setStyle("-fx-font-size: 20; " +
-                "-fx-background-color: rgba(0,255,0,0.5)");
-        setting.setStyle("-fx-font-size: 20;");
-        time.setStyle("-fx-font-size: 20;");
-
         power.setPrefWidth(btnWidth);
         power.setPrefHeight(btnHeight);
         room.setPrefWidth(btnWidth);
@@ -58,6 +52,14 @@ public class CleaningStage {
         setting.setPrefHeight(btnHeight);
         time.setPrefWidth(btnWidth);
         time.setPrefHeight(btnHeight);
+
+        home.setStyle("-fx-font-size: 15;");
+        room.setStyle("-fx-font-size: 20;");
+        power.setStyle("-fx-font-size: 20; " +
+                "-fx-background-color: rgba(0,255,0,0.5)");
+        setting.setStyle("-fx-font-size: 20;");
+        time.setStyle("-fx-font-size: 20;");
+
 
         power.setOnAction(new EventHandler<ActionEvent>() {
            @Override

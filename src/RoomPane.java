@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -48,6 +49,20 @@ public class RoomPane {
         toilet.setStyle("-fx-font-size: 13;");
         save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
 
+        save.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.8);");
+            }
+        });
+
+        save.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
+            }
+        });
+
         save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -69,8 +84,9 @@ public class RoomPane {
         roomSelector.add(toilet,2,1);
         roomSelector.add(save,1,3);
 
+        roomSelector.setAlignment(Pos.CENTER);
+        roomSelector.setHgap(10);
         roomSelector.setVgap(30);
-        roomSelector.setHgap(60);
 
         centerLayout.setStyle("-fx-background-color: rgba(192,192,192,0.5)");
         roomSelector.setStyle("-fx-background-color: rgba(192,192,192,0.8)");
