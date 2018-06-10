@@ -6,3 +6,12 @@
     -fx-border-width: 2;
     -fx-border-color: rgba(0,119,255,0.5);
 }
+
+
+.button:hover{
+    -fx-background-color: rgba(148,228,255,0.6);
+}
+
+.button:pressed{
+    -fx-background-color: rgba(148,228,255,1);
+}
