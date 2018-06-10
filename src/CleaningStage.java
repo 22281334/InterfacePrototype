@@ -50,7 +50,7 @@ public class CleaningStage {
         ToggleButton power = new ToggleButton("Tap to Start",new ImageView(powerPic));
 
         Text mainTitle = new Text("Cleaning Management");
-        mainTitle.setStyle("-fx-font-size: 30");
+        mainTitle.setStyle("-fx-font-size: 24");
 
         double btnWidth = 300;
         double btnHeight = 150;

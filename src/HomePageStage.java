@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -38,6 +39,8 @@ public class HomePageStage {
         centerLayout.getChildren().add(securityButton);
         content.setTop(topLayout);
         content.setCenter(centerLayout);
+
+        centerLayout.setAlignment(Pos.TOP_CENTER);
 
         Scene mainScene = new Scene(content,sizeX,sizeY);
         mainStage.setScene(mainScene);

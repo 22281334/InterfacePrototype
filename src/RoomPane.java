@@ -90,7 +90,7 @@ public class RoomPane {
         roomSelector.setStyle("-fx-background-color: rgba(192,192,192,0.8)");
 
         Text title = new Text("Please Select Room");
-        title.setStyle("-fx-font-size: 25");
+        title.setStyle("-fx-font-size: 18");
 
         centerLayout.setBottom(roomSelector);
         centerLayout.setCenter(title);

@@ -57,14 +57,13 @@ public class TimePane {
             }
         });
 
-
         timeSelector.add(calender,1,1);
         timeSelector.add(save,1,3);
         timeSelector.setAlignment(Pos.CENTER);
         timeSelector.setVgap(70);
 
         Text title = new Text("Please Select the Date");
-        title.setStyle("-fx-font-size: 25");
+        title.setStyle("-fx-font-size: 18");
 
         centerLayout.setBottom(timeSelector);
         centerLayout.setCenter(title);
