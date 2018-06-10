@@ -44,6 +44,7 @@ public class HelpStage {
 
 
 
+
         mainStage.setScene(mainScene);
         mainStage.show();
     }
