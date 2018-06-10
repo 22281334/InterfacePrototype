@@ -8,7 +8,6 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        HomePageStage home = new HomePageStage(400,100,1000,800);
-
+        new HomePageStage(400,100,1000,800);
     }
 }
