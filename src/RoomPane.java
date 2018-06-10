@@ -4,6 +4,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +31,7 @@ public class RoomPane {
         ToggleButton toilet = new ToggleButton("Toilet");
         Button save = new Button("Save changes");
 
-        living.setPrefWidth(subBtnWidth);
+
         living.setPrefHeight(subBtnHeight);
         kitchen.setPrefWidth(subBtnWidth);
         kitchen.setPrefHeight(subBtnHeight);
@@ -83,6 +84,7 @@ public class RoomPane {
         roomSelector.add(toilet,2,1);
         roomSelector.add(save,1,3);
 
+        roomSelector.setPadding(new Insets(30));
         roomSelector.setAlignment(Pos.CENTER);
         roomSelector.setHgap(10);
         roomSelector.setVgap(30);
