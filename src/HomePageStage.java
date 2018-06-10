@@ -1,6 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
@@ -17,34 +18,42 @@ public class HomePageStage {
         Stage mainStage = new Stage();
         mainStage.setX(positionX);
         mainStage.setY(positionY);
+        mainStage.setResizable(false);
 
         FlowPane centerLayout = new FlowPane();
         BorderPane topLayout = new BorderPane();
         BorderPane content = new BorderPane();
         Text title = new Text("Smart Home");
-        title.setStyle("-fx-font-size: 50");
+        title.setStyle("-fx-font-size: 24");
 
-        centerLayout.setHgap(100);
+        centerLayout.setHgap(250);
+        centerLayout.setVgap(50);
 
-        Image CleaningPic = new Image("pic/Security/Cleaning.png");
-
-        Button cleaningButton = new Button("Cleaning",new ImageView(CleaningPic));
+        Button cleaningButton = new Button("Cleaning",new ImageView(new Image("pic/HomePage/Cleaning.png")));
         Button securityButton = new Button("Security",new ImageView(new Image("pic/Security/SecurityIcon.png")));
+        Button phoneButton = new Button("Phone",new ImageView(new Image("pic/HomePage/Phone.png")));
+        Button applianceButton = new Button("Appliance Controller",new ImageView(new Image("pic/HomePage/Appliance.png")));
+        Button healthButton = new Button("Health Monitor",new ImageView(new Image("pic/HomePage/Health.png")));
+        Button helpButton = new Button("Help",new ImageView(new Image("pic/HomePage/Help.png")));
+
+        applianceButton.setStyle("-fx-pref-width: 350");
+
         topLayout.setCenter(title);
+        centerLayout.getChildren().addAll(cleaningButton,securityButton,
+                phoneButton,applianceButton,healthButton,helpButton );
+        content.setTop(topLayout);
+        content.setCenter(centerLayout);
+        centerLayout.setPadding(new Insets(50));
 
         startNewPage(cleaningButton,CleaningStage.class,mainStage);
         startNewPage(securityButton,SecurityStage.class,mainStage);
 
-        centerLayout.getChildren().add(cleaningButton);
-        centerLayout.getChildren().add(securityButton);
-        content.setTop(topLayout);
-        content.setCenter(centerLayout);
-
-        centerLayout.setAlignment(Pos.TOP_CENTER);
-
         Scene mainScene = new Scene(content,sizeX,sizeY);
+        mainScene.getStylesheets().add(getClass().getResource("Style/HomePageStyle.css").toExternalForm());
         mainStage.setScene(mainScene);
         mainStage.show();
+
+
     }
 
 

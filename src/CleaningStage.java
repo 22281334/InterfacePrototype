@@ -1,6 +1,5 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
@@ -9,12 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.SimpleTimeZone;
 
 public class CleaningStage {
 
@@ -49,12 +46,17 @@ public class CleaningStage {
         Button time = new Button("Schedule",new ImageView(timePic));
         ToggleButton power = new ToggleButton("Tap to Start",new ImageView(powerPic));
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss a");
+        Date date = new Date();
+        Text clock = new Text(dateFormat.format(date));
+        clock.setStyle("-fx-font-size: 20;");
+
         Text mainTitle = new Text("Cleaning Management");
         mainTitle.setStyle("-fx-font-size: 24");
 
         double btnWidth = 300;
         double btnHeight = 150;
-
         power.setPrefWidth(btnWidth);
         power.setPrefHeight(btnHeight);
         room.setPrefWidth(btnWidth);
@@ -64,12 +66,8 @@ public class CleaningStage {
         time.setPrefWidth(btnWidth);
         time.setPrefHeight(btnHeight);
 
-        home.setStyle("-fx-font-size: 15");
-        room.setStyle("-fx-font-size: 20;");
         power.setStyle("-fx-font-size: 20; " +
                 "-fx-background-color: rgba(0,255,0,0.5)");
-        setting.setStyle("-fx-font-size: 20;");
-        time.setStyle("-fx-font-size: 20;");
 
         power.setOnAction(new EventHandler<ActionEvent>() {
            @Override
@@ -111,12 +109,6 @@ public class CleaningStage {
             }
         });
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat();
-        dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss a");
-        Date date = new Date();
-        Text clock = new Text(dateFormat.format(date));
-        clock.setStyle("-fx-font-size: 20;");
-
         topLayout.setRight(clock);
         topLayout.setLeft(home);
         topLayout.setCenter(mainTitle);
@@ -132,7 +124,7 @@ public class CleaningStage {
         content.setRight(rightLayout);
 
         Scene scene = new Scene(content,sizeX,sizeY);
-        scene.getStylesheets().add(getClass().getResource("CleaningStyle.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("Style/CleaningStyle.css").toExternalForm());
         mainStage.setScene(scene);
         mainStage.show();
     }

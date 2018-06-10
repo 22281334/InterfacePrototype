@@ -45,19 +45,20 @@ public class RoomPane {
         kitchen.setStyle("-fx-font-size: 13;");
         bedRoom.setStyle("-fx-font-size: 13;");
         toilet.setStyle("-fx-font-size: 13;");
-        save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
+        save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4); ");
 
         save.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.8);");
+                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.8);" +
+                        " -fx-pref-width: 100; -fx-pref-height: 50;");
             }
         });
 
         save.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
+                save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);" );
             }
         });
 
