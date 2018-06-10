@@ -3,6 +3,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,7 @@ public class TimePane {
         DatePicker calender = new DatePicker();
         Button save = new Button("Save changes");
 
+        calender.setPrefSize(150,30);
         save.setPrefWidth(100);
         save.setPrefHeight(50);
         save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
@@ -55,11 +57,11 @@ public class TimePane {
             }
         });
 
+
         timeSelector.add(calender,1,1);
         timeSelector.add(save,1,3);
         timeSelector.setAlignment(Pos.CENTER);
-        timeSelector.setHgap(10);
-        timeSelector.setVgap(50);
+        timeSelector.setVgap(70);
 
         Text title = new Text("Please Select the Date");
         title.setStyle("-fx-font-size: 25");
