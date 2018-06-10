@@ -21,6 +21,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * Author: Dayun Liu
@@ -46,11 +50,12 @@ public class SecurityStage {
         this.positionY = positionY;
         BorderPane mainPane = new BorderPane();
         Scene scene = new Scene(mainPane, sizeX, sizeY);
-        stage.setX(positionX + 20);
+        stage.setX(positionX);
         stage.setY(positionY);
         GridPane top = new GridPane();
 
         //top
+        BorderPane topPane=new BorderPane();
         Image security = new Image("pic/Security/SecurityIcon.png");
         Image back = new Image("pic/Security/backIcon.png");
         ImageView backView = new ImageView(back);
@@ -66,7 +71,14 @@ public class SecurityStage {
         Label securityLabel = new Label("  Security ");
         securityLabel.setStyle("-fx-font-size: 30");
         top.add(securityLabel, 2, 0);
-        mainPane.setTop(top);
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss a");
+        Date date = new Date();
+        Text clock = new Text(dateFormat.format(date));
+        clock.setStyle("-fx-font-size: 20;");
+        topPane.setLeft(top);
+        topPane.setRight(clock);
+        mainPane.setTop(topPane);
         mainPane.getTop().setStyle("-fx-background-color: rgba(0,119,255,0.5)");
 
         //center

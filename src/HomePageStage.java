@@ -47,12 +47,12 @@ public class HomePageStage {
 
         startNewPage(cleaningButton,CleaningStage.class,mainStage);
         startNewPage(securityButton,SecurityStage.class,mainStage);
+        startNewPage(helpButton,HelpStage.class,mainStage);
 
         Scene mainScene = new Scene(content,sizeX,sizeY);
         mainScene.getStylesheets().add(getClass().getResource("Style/HomePageStyle.css").toExternalForm());
         mainStage.setScene(mainScene);
         mainStage.show();
-
 
     }
 
@@ -68,6 +68,10 @@ public class HomePageStage {
                 }
                 else if (object==CleaningStage.class){
                     new CleaningStage(400,100,1000,800);
+                    mainStage.close();
+                }
+                else if (object==HelpStage.class){
+                    new HelpStage(1000,800,400,100);
                     mainStage.close();
                 }
             }
