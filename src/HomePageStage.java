@@ -36,8 +36,6 @@ public class HomePageStage {
         Button healthButton = new Button("Health Monitor",new ImageView(new Image("pic/HomePage/Health.png")));
         Button helpButton = new Button("Help",new ImageView(new Image("pic/HomePage/Help.png")));
 
-        //applianceButton.setStyle("-fx-pref-width: 350");
-
         topLayout.setCenter(title);
         centerLayout.getChildren().addAll(cleaningButton,securityButton,
                 phoneButton,applianceButton,healthButton,helpButton );
