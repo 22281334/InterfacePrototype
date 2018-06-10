@@ -43,7 +43,7 @@ public class CleaningStage {
         Button room = new Button("Room",new ImageView(roomPic));
         Button home = new Button("Home Page",new ImageView(homePic));
         Button setting = new Button("Setting",new ImageView(setPic));
-        Button time = new Button("Schedule",new ImageView(timePic));
+        Button schedule = new Button("Schedule",new ImageView(timePic));
         ToggleButton power = new ToggleButton("Tap to Start",new ImageView(powerPic));
 
         SimpleDateFormat dateFormat = new SimpleDateFormat();
@@ -63,8 +63,8 @@ public class CleaningStage {
         room.setPrefHeight(btnHeight);
         setting.setPrefWidth(btnWidth);
         setting.setPrefHeight(btnHeight);
-        time.setPrefWidth(btnWidth);
-        time.setPrefHeight(btnHeight);
+        schedule.setPrefWidth(btnWidth);
+        schedule.setPrefHeight(btnHeight);
 
         power.setStyle("-fx-font-size: 20; " +
                 "-fx-background-color: rgba(0,255,0,0.5)");
@@ -94,7 +94,7 @@ public class CleaningStage {
             }
         });
 
-        time.setOnAction(new EventHandler<ActionEvent>() {
+        schedule.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 GridPane timeSelector = new TimePane().returnPane(centerLayout);
@@ -115,7 +115,7 @@ public class CleaningStage {
         leftLayout.setTop(room);
         bottomLayout.setRight(power);
         bottomLayout.setLeft(setting);
-        rightLayout.setTop(time);
+        rightLayout.setTop(schedule);
 
         content.setTop(topLayout);
         content.setBottom(bottomLayout);

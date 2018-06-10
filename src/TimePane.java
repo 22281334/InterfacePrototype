@@ -9,9 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
+
+import java.time.LocalDate;
 
 public class TimePane {
     public TimePane(){
@@ -20,10 +23,40 @@ public class TimePane {
 
     public GridPane returnPane(BorderPane centerLayout){
         GridPane timeSelector = new GridPane();
+        HBox start = new HBox();
+        HBox end = new HBox();
         DatePicker calender = new DatePicker();
         Button save = new Button("Save changes");
+        TextField startHour = new TextField();
+        TextField startMin = new TextField();
+        TextField endHour = new TextField();
+        TextField endMin = new TextField();
+        ToggleButton startAM = new ToggleButton("AM");
+        ToggleButton startPM = new ToggleButton("PM");
+        ToggleGroup startTime = new ToggleGroup();
+        ToggleButton endAM = new ToggleButton("AM");
+        ToggleButton endPM = new ToggleButton("PM");
+        ToggleGroup endTime = new ToggleGroup();
+        Text from = new Text("From:");
+        Text to = new Text("To:");
+        Text title = new Text("Please Select the Date");
+
+        title.setStyle("-fx-font-size: 18");
+        startHour.setPrefColumnCount(2);
+        startHour.setText("12");
+        startMin.setPrefColumnCount(2);
+        startMin.setText("00");
+        endHour.setPrefColumnCount(2);
+        endHour.setText("12");
+        endMin.setPrefColumnCount(2);
+        endMin.setText("00");
+        startAM.setToggleGroup(startTime);
+        startPM.setToggleGroup(startTime);
+        endAM.setToggleGroup(endTime);
+        endPM.setToggleGroup(endTime);
 
         calender.setPrefSize(150,30);
+        calender.setValue(LocalDate.now());
         save.setPrefWidth(100);
         save.setPrefHeight(50);
         save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
@@ -46,7 +79,7 @@ public class TimePane {
             @Override
             public void handle(ActionEvent event) {
                 ProgressBar progress = new ProgressBar(0);
-                timeSelector.add(progress,1,2);
+                timeSelector.add(progress,1,4);
                 Timeline timeline = new Timeline();
                 KeyValue kv = new KeyValue(progress.progressProperty(),1);
                 KeyFrame kf = new KeyFrame(Duration.millis(500),kv);
@@ -57,13 +90,18 @@ public class TimePane {
             }
         });
 
-        timeSelector.add(calender,1,1);
-        timeSelector.add(save,1,3);
-        timeSelector.setAlignment(Pos.CENTER);
-        timeSelector.setVgap(70);
 
-        Text title = new Text("Please Select the Date");
-        title.setStyle("-fx-font-size: 18");
+        start.getChildren().addAll(new Label("Hours:"),startHour,new Label("Minutes:"),startMin,startAM,startPM);
+        end.getChildren().addAll(new Label("Hours:"),endHour,new Label("Minutes:"),endMin,endAM,endPM);
+        timeSelector.add(calender,1,1);
+        timeSelector.add(from,0,2);
+        timeSelector.add(start,1,2);
+        timeSelector.add(to,0,3);
+        timeSelector.add(end,1,3);
+        timeSelector.add(save,1,5);
+        timeSelector.setAlignment(Pos.CENTER);
+        timeSelector.setVgap(50);
+        timeSelector.setHgap(20);
 
         centerLayout.setBottom(timeSelector);
         centerLayout.setCenter(title);
