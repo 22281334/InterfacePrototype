@@ -16,7 +16,7 @@ import java.time.LocalDate;
 
 /**
  *
- * Author: Yanjing Teng
+ * Author: Yanjing Teng (TENYY008)
  *
  */
 public class TimePane {

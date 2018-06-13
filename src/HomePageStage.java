@@ -16,7 +16,7 @@ import java.util.Date;
 
 /**
  *
- * Author:
+ * Author: Yanjing Teng, Jiawei Chen, Minting Lu, Chao Ni
  *
  */
 public class HomePageStage {

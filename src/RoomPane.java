@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 /**
  *
- * Author:
+ * Author: Yanjing Teng (TENYY008)
  *
  */
 public class RoomPane {

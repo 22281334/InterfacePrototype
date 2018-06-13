@@ -15,7 +15,7 @@ import java.util.Date;
 
 /**
  *
- * Author: Yanjing Teng
+ * Author: Yanjing Teng (TENYY008)
  *
  */
 public class CleaningStage {
