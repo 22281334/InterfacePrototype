@@ -33,7 +33,10 @@ public class RoomPane {
         ToggleButton bedRoom = new ToggleButton("Bed Room");
         ToggleButton toilet = new ToggleButton("Toilet");
         Button save = new Button("Save changes");
+        Text title = new Text("Please Select Room");
+        title.setStyle("-fx-font-size: 18");
 
+        // Set the size and font of buttons
         living.setPrefHeight(subBtnHeight);
         kitchen.setPrefWidth(subBtnWidth);
         kitchen.setPrefHeight(subBtnHeight);
@@ -43,13 +46,13 @@ public class RoomPane {
         toilet.setPrefHeight(subBtnHeight);
         save.setPrefWidth(subBtnWidth);
         save.setPrefHeight(50);
-
         living.setStyle("-fx-font-size: 13;");
         kitchen.setStyle("-fx-font-size: 13;");
         bedRoom.setStyle("-fx-font-size: 13;");
         toilet.setStyle("-fx-font-size: 13;");
         save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4); ");
 
+        // Change "save" button color when click
         save.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -57,7 +60,6 @@ public class RoomPane {
                         " -fx-pref-width: 100; -fx-pref-height: 50;");
             }
         });
-
         save.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -65,13 +67,14 @@ public class RoomPane {
             }
         });
 
+        // Add progress bar and animation after click "save" button
         save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ProgressBar progress = new ProgressBar(0);
+                ProgressBar progress = new ProgressBar(0);  // original progress : 0
                 roomSelector.add(progress,1,2);
                 Timeline timeline = new Timeline();
-                KeyValue kv = new KeyValue(progress.progressProperty(),1);
+                KeyValue kv = new KeyValue(progress.progressProperty(),1);  // Final progress value : 1
                 KeyFrame kf = new KeyFrame(Duration.millis(500),kv);
                 timeline.getKeyFrames().add(kf);
                 timeline.play();
@@ -90,12 +93,8 @@ public class RoomPane {
         roomSelector.setAlignment(Pos.CENTER);
         roomSelector.setHgap(10);
         roomSelector.setVgap(30);
-
         centerLayout.setStyle("-fx-background-color: rgba(192,192,192,0.5)");
         roomSelector.setStyle("-fx-background-color: rgba(192,192,192,0.8)");
-
-        Text title = new Text("Please Select Room");
-        title.setStyle("-fx-font-size: 18");
 
         centerLayout.setBottom(roomSelector);
         centerLayout.setCenter(title);

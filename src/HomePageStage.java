@@ -57,6 +57,7 @@ public class HomePageStage {
         Button applianceButton = new Button("Appliance\nController",appliance);
         Button healthButton = new Button("Health Monitor",new ImageView(new Image("pic/HomePage/Health.png")));
         Button settingButton = new Button("Setting",new ImageView(new Image("pic/HomePage/setting.png")));
+        startNewPage(settingButton, Setting.class, mainStage);
 
         topLayout.setCenter(title);
         centerLayout.getChildren().addAll(cleaningButton,securityButton,

@@ -116,6 +116,13 @@ public class CleaningStage {
                 mainStage.close();
             }
         });
+        // Open setting stage
+        setting.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+               Setting settingStage = new Setting(positionX,positionY,sizeX,sizeY);
+            }
+        });
 
         // Set the position of buttons and title
         topLayout.setRight(clock);
