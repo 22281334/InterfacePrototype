@@ -19,7 +19,11 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
+/**
+ *
+ * Author: Minting Lu
+ *
+ */
 public class PhoneStage {
     BorderPane content;
     BorderPane buttonArea;

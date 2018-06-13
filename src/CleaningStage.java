@@ -1,3 +1,4 @@
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -12,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  *
  * Author: Yanjing Teng (TENYY008)

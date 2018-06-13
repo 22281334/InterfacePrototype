@@ -6,7 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -14,9 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- * Author:
- *
+ * Author: Chao Ni
  */
 public class ApplianceStage {
 
@@ -32,10 +31,10 @@ public class ApplianceStage {
         BorderPane content = new BorderPane();
         Text title = new Text("\t\t Smart Home");
         title.setStyle("-fx-font-size: 30");
-        ImageView backView=new ImageView(new Image("pic/ApplianceImg/back.png"));
+        ImageView backView = new ImageView(new Image("pic/ApplianceImg/back.png"));
         backView.setFitWidth(100);
         backView.setFitHeight(100);
-        Button back=new Button("",backView);
+        Button back = new Button("", backView);
         back.setStyle("    -fx-pref-height: 80; -fx-pref-width: 120;");
         EventHandler<ActionEvent> backButtonEvent = new EventHandler<ActionEvent>() {
             @Override
@@ -58,10 +57,10 @@ public class ApplianceStage {
 
 
         ImageView light = new ImageView(new Image("pic/ApplianceImg/light.png"));
-        ImageView tv=new ImageView(new Image("pic/ApplianceImg/tv.png"));
-        ImageView sleep=new ImageView(new Image("pic/ApplianceImg/moon.png"));
-        ImageView air= new ImageView(new Image("pic/ApplianceImg/aircondition.jpeg"));
-        ImageView window=new ImageView(new Image("pic/ApplianceImg/window.jpeg"));
+        ImageView tv = new ImageView(new Image("pic/ApplianceImg/tv.png"));
+        ImageView sleep = new ImageView(new Image("pic/ApplianceImg/moon.png"));
+        ImageView air = new ImageView(new Image("pic/ApplianceImg/aircondition.jpeg"));
+        ImageView window = new ImageView(new Image("pic/ApplianceImg/window.jpeg"));
 //        ImageView setting = new ImageView(new Image("pic/ApplianceImg/setting.jpeg"));
 
         light.setFitHeight(125);
@@ -78,13 +77,12 @@ public class ApplianceStage {
 //        setting.setFitWidth(125);
 
 
-
         Button lightButton = new Button("Light", light);
         Button tvButton = new Button("TV", tv);
         Button sleepButton = new Button("Sleep Mode", sleep);
         Button airconditionButton = new Button("aircondition", new ImageView(new Image("pic/ApplianceImg/aircondition.jpeg")));
-        Button windowButton = new Button("window",window );
-        Button helpButton = new Button("Help", new ImageView(new Image("pic/HomePage/setting.png")));
+        Button windowButton = new Button("Window", window);
+        Button helpButton = new Button("Setting", new ImageView(new Image("pic/HomePage/setting.png")));
 
         topLayout.setCenter(title);
         centerLayout.getChildren().addAll(lightButton, tvButton,
