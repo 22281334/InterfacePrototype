@@ -1,0 +1,25 @@
+.button{
+    -fx-font-size: 20;
+    -fx-background-color: rgba(148,228,255,0.3);
+    -fx-border-width: 2;
+    -fx-border-color: rgba(0,119,255,0.5);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.button:hover{
+    -fx-background-color: rgba(148,228,255,0.6);
+}
+
+.button:pressed{
+    -fx-background-color: rgba(148,228,255,1);
+}
+
+.TopBG {
+    -fx-background-color: rgba(0,119,255,0.5);
+}
+
+.MainBG{
+    -fx-background-color: rgba(169,255,200,0.2);
+}
+
