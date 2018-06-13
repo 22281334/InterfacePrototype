@@ -84,7 +84,6 @@ public class Setting {
         slider.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                System.out.println(new_val.intValue());
                 soundValue.setText(String.format("%.1f", new_val));
             }
         });
@@ -95,7 +94,6 @@ public class Setting {
         slider1.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                System.out.println(new_val.intValue());
                 lightValue.setText(String.format("%.1f", new_val));
             }
         });
@@ -106,7 +104,6 @@ public class Setting {
         slidertext.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                System.out.println(new_val.intValue());
                 textValue.setText(String.format("%.1f", new_val));
             }
         });

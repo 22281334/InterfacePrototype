@@ -73,6 +73,7 @@ public class HomePageStage {
         startNewPage(securityButton,SecurityStage.class,mainStage);
         startNewPage(settingButton,Setting.class,mainStage);
         startNewPage(applianceButton,ApplianceStage.class,mainStage);
+        startNewPage(phoneButton, PhoneStage.class,mainStage);
         //content.setStyle("-fx-background-color: rgb(255, 250, 205)");
 
         Scene mainScene = new Scene(content,sizeX,sizeY);
@@ -115,6 +116,12 @@ public class HomePageStage {
                 else if (object==ApplianceStage.class){
                     Platform.runLater(()->{
                         new ApplianceStage(400,100,1000,800);
+                    });
+                    mainStage.hide();
+                }
+                else if (object== PhoneStage.class){
+                    Platform.runLater(()->{
+                        new PhoneStage(1000,800,400,100);
                     });
                     mainStage.hide();
                 }
