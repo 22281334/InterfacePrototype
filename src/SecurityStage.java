@@ -55,6 +55,7 @@ public class SecurityStage {
         stage.setY(positionY);
         GridPane title = new GridPane();
 
+
         //top
         BorderPane topPane=new BorderPane();
         Image security = new Image("pic/Security/SecurityIcon.png");
