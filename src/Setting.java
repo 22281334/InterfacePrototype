@@ -1,14 +1,14 @@
 
-import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.image.Image;
@@ -18,20 +18,23 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
-public class Setting extends Application {
+/**
+ *
+ * Author: Jiawei Chen
+ *
+ */
+public class Setting {
 
-    @Override
-    public void start(Stage stage) {
 
+    public Setting(double positionX, double positionY, double sizeX, double sizeY) {
+
+        Stage stage = new Stage();
+        stage.setX(positionX);
+        stage.setY(positionY);
         BorderPane root = new BorderPane();
         GridPane gridpane = new GridPane();
+
         gridpane.setPadding(new Insets(6));
         gridpane.setHgap(5);
         gridpane.setVgap(5);
@@ -39,7 +42,8 @@ public class Setting extends Application {
         ColumnConstraints column2 = new ColumnConstraints(50, 150, 300);
         column2.setHgrow(Priority.ALWAYS);
         gridpane.getColumnConstraints().addAll(column1, column2);
-        Scene scene = new Scene(root, 600, 400);
+
+        Scene scene = new Scene(root, 1000, 800);
 
         final Label sound = new Label("Sound:");
         final Label light = new Label("Light:");
@@ -49,7 +53,7 @@ public class Setting extends Application {
         final Label language = new Label("Change Language");
         final Slider slider = new Slider(0, 100, 50);
         final Slider slider1 = new Slider(0, 100, 50);
-        final Slider slidertext = new Slider (0, 6, 3);
+        final Slider slidertext = new Slider(0, 6, 3);
         slidertext.setShowTickMarks(true);
         slidertext.setShowTickLabels(true);
         slidertext.setMajorTickUnit(0.25f);
@@ -71,11 +75,11 @@ public class Setting extends Application {
 
 
         final Label soundValue = new Label(
-                Integer.toString((int)slider.getValue()));
+                Integer.toString((int) slider.getValue()));
         final Label lightValue = new Label(
-                Integer.toString((int)slider1.getValue()));
+                Integer.toString((int) slider1.getValue()));
         final Label textValue = new Label(
-                Integer.toString((int)slidertext.getValue()));
+                Integer.toString((int) slidertext.getValue()));
 
         slider.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
@@ -151,13 +155,12 @@ public class Setting extends Application {
             @Override
             public void handle(ActionEvent event) {
                 String bgColor = wifiButton.getBackground().getFills().get(0).toString();
-                bgColor = bgColor.substring(bgColor.length()-8);
-                if(bgColor.equals("@5e759d9")){
+                bgColor = bgColor.substring(bgColor.length() - 8);
+                if (bgColor.equals("@5e759d9")) {
                     wifiButton.setStyle("-fx-font-size: 10; " +
                             "-fx-background-color: rgba(255,0,0,0.5)");
                     wifiButton.setText("Off");
-                }
-                else{
+                } else {
                     wifiButton.setStyle("-fx-font-size: 10; " +
                             "-fx-background-color: rgba(0,255,0,0.5)");
                     wifiButton.setText("On");
@@ -178,13 +181,12 @@ public class Setting extends Application {
             @Override
             public void handle(ActionEvent event) {
                 String bgColor = soundccButton.getBackground().getFills().get(0).toString();
-                bgColor = bgColor.substring(bgColor.length()-8);
-                if(bgColor.equals("@5e759d9")){
+                bgColor = bgColor.substring(bgColor.length() - 8);
+                if (bgColor.equals("@5e759d9")) {
                     soundccButton.setStyle("-fx-font-size: 10; " +
                             "-fx-background-color: rgba(255,0,0,0.5)");
                     soundccButton.setText("Off");
-                }
-                else{
+                } else {
                     soundccButton.setStyle("-fx-font-size: 10; " +
                             "-fx-background-color: rgba(0,255,0,0.5)");
                     soundccButton.setText("On");
@@ -193,50 +195,51 @@ public class Setting extends Application {
         });
         gridpane.add(soundccButton, 2, 4);
 
-        Image soundIcon = new Image("sound.jpg",25,25,false,false);
+        Image soundIcon = new Image("pic/settingImg/sound.jpg", 25, 25, false, false);
         ImageView soundView = new ImageView(soundIcon);
-        Button soundButton = new Button ();
+        Button soundButton = new Button();
         soundButton.setGraphic(soundView);
-        gridpane.add(soundButton,0,0);
+        gridpane.add(soundButton, 0, 0);
 
-        Image lightIcon = new Image("light.png",25,25,false,false);
+        Image lightIcon = new Image("pic/settingImg/light.png", 25, 25, false, false);
         ImageView lightView = new ImageView(lightIcon);
-        Button lightButton = new Button ();
+        Button lightButton = new Button();
         lightButton.setGraphic(lightView);
-        gridpane.add(lightButton,0,1);
+        gridpane.add(lightButton, 0, 1);
 
-        Image textIcon = new Image("text.png",25,25,false,false);
+        Image textIcon = new Image("pic/settingImg/text.png", 25, 25, false, false);
         ImageView textView = new ImageView(textIcon);
-        Button textButton = new Button ();
+        Button textButton = new Button();
         textButton.setGraphic(textView);
-        gridpane.add(textButton,0,2);
+        gridpane.add(textButton, 0, 2);
 
-        Image wifiIcon = new Image("wifi.png",25,25,false,false);
+        Image wifiIcon = new Image("pic/settingImg/wifi.png", 25, 25, false, false);
         ImageView wifiView = new ImageView(wifiIcon);
-        Button wifiButt = new Button ();
+        Button wifiButt = new Button();
         wifiButt.setGraphic(wifiView);
-        gridpane.add(wifiButt,0,3);
+        gridpane.add(wifiButt, 0, 3);
 
-        Image soundccIcon = new Image("soundcc.png",25,25,false,false);
+        Image soundccIcon = new Image("pic/settingImg/soundcc.png", 25, 25, false, false);
         ImageView soundccView = new ImageView(soundccIcon);
-        Button soundccButt = new Button ();
+        Button soundccButt = new Button();
         soundccButt.setGraphic(soundccView);
-        gridpane.add(soundccButt,0,4);
+        gridpane.add(soundccButt, 0, 4);
 
         EventHandler<ActionEvent> success = new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
+            @Override
+            public void handle(ActionEvent e) {
 
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Save setting");
                 alert.setHeaderText("Do you want to save the changes?");
                 GridPane gridPane = new GridPane();
                 ProgressIndicator progressIndicator = new ProgressIndicator();
-                gridPane.add(progressIndicator,2,6);
-                Image image = new Image("important.png", 50,50,false,false);
+                gridPane.add(progressIndicator, 2, 6);
+                Image image = new Image("pic/settingImg/important.png", 50, 50, false, false);
                 ImageView imageView = new ImageView(image);
                 gridPane.add(imageView, 0, 0);
                 alert.getDialogPane().setContent(gridPane);
-                gridPane.add(new Label("If not stored, your changed content will be lost"),1,0);
+                gridPane.add(new Label("If not stored, your changed content will be lost"), 1, 0);
                 alert.getDialogPane().setContent(gridPane);
                 alert.showAndWait();
 
@@ -246,16 +249,24 @@ public class Setting extends Application {
 
 
         saveButton.setOnAction(success);
-        Button backhomeButt = new Button ("Home");
+        Button backhomeButt = new Button("Home");
+
+        EventHandler<ActionEvent> backButtonEvent = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                new HomePageStage(400, 100, 1000, 800);
+                stage.close();
+            }
+        };
+        backhomeButt.setOnAction(backButtonEvent);
+
         backhomeButt.setPrefSize(100, 100);
         backhomeButt.setStyle("-fx-background-color: rgba(36, 164, 168, 1)");
-        gridpane.add(backhomeButt,0,7);
+        gridpane.add(backhomeButt, 0, 7);
         root.setCenter(gridpane);
         stage.setScene(scene);
         stage.show();
+
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

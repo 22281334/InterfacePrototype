@@ -52,7 +52,7 @@ public class SecurityStage {
         Scene scene = new Scene(mainPane, sizeX, sizeY);
         stage.setX(positionX);
         stage.setY(positionY);
-        GridPane top = new GridPane();
+        GridPane title = new GridPane();
 
         //top
         BorderPane topPane=new BorderPane();
@@ -66,17 +66,17 @@ public class SecurityStage {
         imageView.setFitHeight(40);
         Button backButton = new Button("", backView);
         backButton.setStyle("-fx-background-color: rgba(0,119,255,0.5)");
-        top.add(backButton, 0, 0);
-        top.add(imageView, 1, 0);
         Label securityLabel = new Label("  Security ");
         securityLabel.setStyle("-fx-font-size: 30");
-        top.add(securityLabel, 2, 0);
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss a");
         Date date = new Date();
         Text clock = new Text(dateFormat.format(date));
         clock.setStyle("-fx-font-size: 20;");
-        topPane.setLeft(top);
+        title.add(imageView,0,0);
+        title.add(securityLabel,1,0);
+        topPane.setCenter(title);
+        topPane.setLeft(backButton);
         topPane.setRight(clock);
         mainPane.setTop(topPane);
         mainPane.getTop().setStyle("-fx-background-color: rgba(0,119,255,0.5)");
@@ -104,7 +104,7 @@ public class SecurityStage {
         ScrollBar sc = new ScrollBar();
         scrollBar(sc,scene,center);
         mainPane.setRight(sc);
-        center.setStyle("-fx-border-width: 2px; -fx-background-color: rgba(135,206,235); -fx-border-color: rgba(0,119,255,0.5);");
+        center.setStyle("-fx-border-width: 2px; -fx-background-color: rgba(135,206,235,0.3); -fx-border-color: rgba(0,119,255,0.5);");
         mainPane.setCenter(center);
 
 
@@ -136,7 +136,7 @@ public class SecurityStage {
         bottomArea.setCenter(buttonArea);
         bottomArea.setRight(unlockView);
         mainPane.setBottom(bottomArea);
-        mainPane.getBottom().setStyle("-fx-background-color: rgba(135,206,250);");
+        mainPane.getBottom().setStyle("-fx-background-color: rgba(0,119,255,0.5)");
 
         stage.setTitle("Security");
         stage.setScene(scene);

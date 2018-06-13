@@ -13,6 +13,11 @@ import javafx.stage.Stage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *
+ * Author:
+ *
+ */
 public class CleaningStage {
 
     public CleaningStage(double positionX,double positionY,double sizeX,double sizeY){
@@ -37,7 +42,7 @@ public class CleaningStage {
         Image roomPic = new Image("pic/Cleaning/room.png");
         Image homePic = new Image("pic/Cleaning/Home.png");
         Image powerPic = new Image("pic/Cleaning/power.png");
-        Image setPic = new Image("pic/Cleaning/setting.png");
+        Image setPic = new Image("pic/HomePage/setting.png");
         Image timePic = new Image("pic/Cleaning/time.png");
 
         Button room = new Button("Room",new ImageView(roomPic));

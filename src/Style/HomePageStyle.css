@@ -17,3 +17,7 @@
 .button:pressed{
     -fx-background-color: rgba(148,228,255,1);
 }
+
+.TopBG{
+    -fx-background-color: rgb(255, 218, 185);
+}
