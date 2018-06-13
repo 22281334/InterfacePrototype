@@ -17,11 +17,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
- * Author: Jiawei Chen
+ * Author: Jiawei Chen(CHEJY176)
  *
  */
 public class Setting {
@@ -33,7 +37,21 @@ public class Setting {
         stage.setX(positionX);
         stage.setY(positionY);
         BorderPane root = new BorderPane();
+        BorderPane top = new BorderPane();
         GridPane gridpane = new GridPane();
+
+        Text title = new Text("Setting");
+        title.setStyle("-fx-font-size: 20");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss a");
+        Date date = new Date();
+        Text clock = new Text(dateFormat.format(date));
+        clock.setStyle("-fx-font-size: 20;");
+        top.setCenter(title);
+        top.setRight(clock);
+        top.setStyle("-fx-background-color: rgba(0,119,255,0.5)");
+        root.setTop(top);
 
         gridpane.setPadding(new Insets(6));
         gridpane.setHgap(5);

@@ -16,7 +16,7 @@ import java.time.LocalDate;
 
 /**
  *
- * Author:
+ * Author: Yanjing Teng
  *
  */
 public class TimePane {
@@ -36,15 +36,20 @@ public class TimePane {
         TextField endMin = new TextField();
         ToggleButton startAM = new ToggleButton("AM");
         ToggleButton startPM = new ToggleButton("PM");
-        ToggleGroup startTime = new ToggleGroup();
         ToggleButton endAM = new ToggleButton("AM");
         ToggleButton endPM = new ToggleButton("PM");
-        ToggleGroup endTime = new ToggleGroup();
         Text from = new Text("From:");
         Text to = new Text("To:");
         Text title = new Text("Please Select the Date");
-
         title.setStyle("-fx-font-size: 18");
+
+        calender.setPrefSize(150,30);
+        calender.setValue(LocalDate.now());
+        save.setPrefWidth(100);
+        save.setPrefHeight(50);
+        save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
+
+        // Change the size of text field
         startHour.setPrefColumnCount(2);
         startHour.setText("12");
         startMin.setPrefColumnCount(2);
@@ -53,24 +58,22 @@ public class TimePane {
         endHour.setText("12");
         endMin.setPrefColumnCount(2);
         endMin.setText("00");
+
+        // Set 2 toggle groups
+        ToggleGroup startTime = new ToggleGroup();
+        ToggleGroup endTime = new ToggleGroup();
         startAM.setToggleGroup(startTime);
         startPM.setToggleGroup(startTime);
         endAM.setToggleGroup(endTime);
         endPM.setToggleGroup(endTime);
 
-        calender.setPrefSize(150,30);
-        calender.setValue(LocalDate.now());
-        save.setPrefWidth(100);
-        save.setPrefHeight(50);
-        save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.4);");
-
+        // Change the color of "save" button
         save.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 save.setStyle("-fx-font-size: 12; -fx-background-color: rgba(0,255,0,0.8);");
             }
         });
-
         save.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -78,13 +81,14 @@ public class TimePane {
             }
         });
 
+        // Add progress bar and animation after click "save" button
         save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ProgressBar progress = new ProgressBar(0);
+                ProgressBar progress = new ProgressBar(0);    // original progress : 0
                 timeSelector.add(progress,1,4);
                 Timeline timeline = new Timeline();
-                KeyValue kv = new KeyValue(progress.progressProperty(),1);
+                KeyValue kv = new KeyValue(progress.progressProperty(),1);  // Final progress value : 1
                 KeyFrame kf = new KeyFrame(Duration.millis(500),kv);
                 timeline.getKeyFrames().add(kf);
                 timeline.play();
@@ -92,7 +96,6 @@ public class TimePane {
                 alert.show();
             }
         });
-
 
         start.getChildren().addAll(new Label("Hours:"),startHour,new Label("Minutes:"),startMin,startAM,startPM);
         end.getChildren().addAll(new Label("Hours:"),endHour,new Label("Minutes:"),endMin,endAM,endPM);

@@ -34,7 +34,6 @@ public class RoomPane {
         ToggleButton toilet = new ToggleButton("Toilet");
         Button save = new Button("Save changes");
 
-
         living.setPrefHeight(subBtnHeight);
         kitchen.setPrefWidth(subBtnWidth);
         kitchen.setPrefHeight(subBtnHeight);
