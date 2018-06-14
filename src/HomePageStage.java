@@ -63,7 +63,6 @@ public class HomePageStage {
         centerLayout.getChildren().addAll(cleaningButton,securityButton,
                 phoneButton,applianceButton,healthButton,settingButton );
 
-        //topLayout.setStyle("-fx-background-color: rgb(255, 218, 185)");
         content.setTop(topLayout);
         content.setCenter(centerLayout);
         centerLayout.setPadding(new Insets(50));
@@ -75,7 +74,6 @@ public class HomePageStage {
         startNewPage(settingButton,Setting.class,mainStage);
         startNewPage(applianceButton,ApplianceStage.class,mainStage);
         startNewPage(phoneButton, PhoneStage.class,mainStage);
-        //content.setStyle("-fx-background-color: rgb(255, 250, 205)");
 
         Scene mainScene = new Scene(content,sizeX,sizeY);
         Image background=new Image("pic/background.jpg",1000,800,false,true);
