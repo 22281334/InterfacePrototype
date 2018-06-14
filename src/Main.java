@@ -13,5 +13,6 @@ public class Main extends Application{
         //new ApplianceStage(400,100,1000,800);
         //new Setting(400,100,1000,800);
         //new HelpStage(1000,800,400,100);
+        //new SecurityStage(1000,800,400,100);
     }
 }
